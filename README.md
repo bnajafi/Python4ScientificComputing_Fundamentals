@@ -1,2 +1,2 @@
-# python4ScientificComputing_Fundamentals
+# Python4ScientificComputing_Fundamentals
 This repository includes the guidelines and the exercise files of the first part of my lectures on python for scientific programming which is dedicated to a general introduction to Python  programming language.  These lectures are a part of the "Energy and Environmental Technologies for Building Systems"  course offered for M.Sc in Energy Eng. at Politecnico di Milano.  Python in this course is employed  both as an stand-alone simulation tool and a means for pre-processing the input files and post-processing the output files of a third party Building simulation tool (EnergyPlus)
