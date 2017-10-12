@@ -78,6 +78,6 @@ for resistance in resistances_in_parallel:
     #print Message
 Rtotal_parallel=1/Rtotal_parallel_inv
 print Message
-print "So the total resitance of your wall is: "+str(R_total_parallel)+"degC/W"
+print "So the total resitance of your wall is: "+str(Rtotal_parallel)+"degC/W"
 
 R_total =Rtotal_parallel+Rtotal_series
