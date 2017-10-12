@@ -4,7 +4,7 @@ NumberOfResistances_string=raw_input("Please enter number of resistances: ")
 NumberOfResistances=float(NumberOfResistances_string)
 
 R_tot=0
-for ResistanceNumber in Range(NumberOfResistances):
+for ResistanceNumber in range(NumberOfResistances):
     print("\n \n \n Resistance Number "+ str(ResistanceNumber+1)+ "\n")
     ResistanceType=raw_input("Please choose the type of the resistance: conductive:1, convective=2 ")
     if ResistanceType=="1":
