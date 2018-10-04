@@ -29,4 +29,15 @@ t1[1] = 4
 dict1 = {"name":"Marco","age":25, "FavoriteMusic":"Rock"}
 dict1["name"]
 
+R1 = {"name":"R_foam", "type":"cond", "length":0.06,
+      "conductivity":0.78,"area": 15
+      }
 
+R2 = {"name":"R_brick", "type":"cond", "length":0.1,
+      "conductivity":0.2,"area": 15
+      }
+
+Ressitance_R1 = R1["length"]/(R1["conductivity"]*R1["area"])
+R1["resistance"]= Ressitance_R1
+
+ResistanceList = [R1,R2] # A list of dictionaries
