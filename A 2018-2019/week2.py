@@ -79,10 +79,15 @@ ThermalResDict = {"FaceBrick":{"R":0.075, "length":0.1}
     
 R_6 = {"name":"Gypsum Wallboard","type":"cond","material":"gypsum", "length":0.013}
 R_2 = {"name":"wood bevel lapped Siding","type":"cond","material":"woodLappedSiding", "length":0.013}
+R_i =  {"name":"inside surface","type":"conv","material":"insideSurface"}
 
 
+ResistanceList_withWood = [R_i,R_2,R_6]
 
-ResistanceList_withWood = []
-
-
+for anyResistance in ResistanceList_withWood:
+    if anyResistance["type"]=="cond":
+        material_anyResistance = anyResistance["material"]
+        length_anyResistance = anyResistance["length"]
+        lengthOfThisMaterialInTheLibrary = ThermalResDict[material_anyResistance]["length"]
+        RValue_anyResistance = ThermalResDict[material_anyResistance]["R"]*length_anyResistance/lengthOfThisMaterialInTheLibrary
 
