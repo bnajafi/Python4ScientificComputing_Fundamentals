@@ -43,12 +43,23 @@ R1["resistance"]= Ressitance_R1
 ResistanceList = [R1,R2] # A list of dictionaries
 
 Ri = {"name":"R_i", "type":"conv", "h":9.2,"area": 15 }
-
+fancyResults ={"Rtot":0, "R_foam":.0003}
 Rtot=0
 for anyResistance in ResistanceList:
     if anyResistance["type"] == "cond":
         RValue = anyResistance["length"]/(anyResistance["conductivity"]*anyResistance["area"])
         anyResistance["RValue"]=RValue
         Rtot=Rtot+RValue
+        fancyResults[anyResistance["name"]]=anyResistance["RValue"]
+      
     elif anyResistance["type"] == "conv":
+        RValue = 1/(anyResistance["h"]*anyResistance["area"])
+        anyResistance["RValue"]=RValue
+        Rtot=Rtot+RValue
+        fancyResults[anyResistance["name"]]=anyResistance["RValue"]
+
+    else:
+        print("Pay attentiona that, this resistance does not have a valid type")
+        print(anyResistance["name"])
+fancyResults["Rtot"] = Rtot    
     
