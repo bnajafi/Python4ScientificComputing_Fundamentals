@@ -90,4 +90,4 @@ for anyResistance in ResistanceList_withWood:
         length_anyResistance = anyResistance["length"]
         lengthOfThisMaterialInTheLibrary = ThermalResDict[material_anyResistance]["length"]
         RValue_anyResistance = ThermalResDict[material_anyResistance]["R"]*length_anyResistance/lengthOfThisMaterialInTheLibrary
-
+        anyResistance["RValue"]=RValue_anyResistance
