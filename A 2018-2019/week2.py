@@ -41,3 +41,14 @@ Ressitance_R1 = R1["length"]/(R1["conductivity"]*R1["area"])
 R1["resistance"]= Ressitance_R1
 
 ResistanceList = [R1,R2] # A list of dictionaries
+
+Ri = {"name":"R_i", "type":"conv", "h":9.2,"area": 15 }
+
+Rtot=0
+for anyResistance in ResistanceList:
+    if anyResistance["type"] == "cond":
+        RValue = anyResistance["length"]/(anyResistance["conductivity"]*anyResistance["area"])
+        anyResistance["RValue"]=RValue
+        Rtot=Rtot+RValue
+    elif anyResistance["type"] == "conv":
+    
