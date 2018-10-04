@@ -22,3 +22,11 @@ R1.append(Resistance_R1)
 t1 = (0.06,3, "cond")
 
 t1[1] = 4
+
+
+# Welcome to the world of dictionaries !
+
+dict1 = {"name":"Marco","age":25, "FavoriteMusic":"Rock"}
+dict1["name"]
+
+
