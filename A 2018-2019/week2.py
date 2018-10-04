@@ -72,7 +72,6 @@ ThermalResDict = {"FaceBrick":{"R":0.075, "length":0.1}
 , "woodFiberBoard":{"R":0.23, "length":0.013}
 , "woodLappedSiding":{"R":0.14, "length":0.013}
 , "gypsum":{"R":0.079, "length":0.013}
-
 , "insideSurface":{"R":0.12}
 , "outsideSurfaceWinter":{"R":0.03}
 , "outsideSurfaceSummer":{"R":0.044}
