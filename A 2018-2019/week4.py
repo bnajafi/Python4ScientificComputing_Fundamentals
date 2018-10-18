@@ -4,6 +4,12 @@ Created on Thu Oct 18 07:31:52 2018
 
 @author: behzad
 """
+import os
+import sys
+ThisFileDirectory=os.path.dirname(sys.argv[0])
+os.chdir(ThisFileDirectory) # this will tell python to change directory to the folder where I ran this file
+
+print os.getcwd() # here I just check by printing get current working directoy
 
 # How can Importing other modules be usefull
 import random as rn
@@ -36,4 +42,12 @@ result=wallFunctions.epsilonEffectiveVectorialOtherOneNormalWall(myEpsilons)
 
 import wallFunctions as wallF
 result=wallF.epsilonEffectiveVectorialOtherOneNormalWall(myEpsilons)
+
+from wallFunctions import epsilonEffective,ThermalResDict
+from wallFunctions import *
+
+myepsilonEffective= epsilonEffective(epsilon1,epsilon2)
+print(ThermalResDict)
+result=epsilonEffectiveVectorialOtherOneNormalWall(myEpsilons)
+
 
