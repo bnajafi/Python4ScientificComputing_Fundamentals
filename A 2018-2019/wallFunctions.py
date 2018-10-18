@@ -33,4 +33,6 @@ ThermalResDict = {"FaceBrick":{"R":0.075, "length":0.1}
 , "insideSurface":{"R":0.12}
 , "outsideSurfaceWinter":{"R":0.03}
 , "outsideSurfaceSummer":{"R":0.044}
+
+
 }
