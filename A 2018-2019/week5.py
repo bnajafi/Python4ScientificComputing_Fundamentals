@@ -6,7 +6,7 @@ Created on Thu Oct 18 07:31:52 2018
 """
 import numpy as np
 
-' The main use of numpy is defining arrays ---These are vectors !!
+#' The main use of numpy is defining arrays ---These are vectors !!
 
 A1 = np.array([1,4,5,11]) # An array of integers
 A2 = np.array([1.2,5.0,9.3,5])
@@ -102,3 +102,26 @@ resistance_RValues= np.array(np.zeros(5))
 resistance_RValues[resistance_types=="cond"]=resistance_L[resistance_types=="cond"]/(resistance_k[resistance_types=="cond"]*resistance_A[resistance_types=="cond"])
 resistance_RValues[resistance_types=="conv"]=1.0/(resistance_h[resistance_types=="conv"]*resistance_A[resistance_types=="conv"])
 Rtot=resistance_RValues.sum()
+
+
+# Let's define 2D arrays : Matrices
+L1 = [1.2,3.3,4.5]
+L2 = [3.9,4.3,2.2]
+L3 = [2.2,3.2,3.9]
+
+AA1 = np.array([L1,[3.9,4.3,2.2],L3]) # pay attention that we are defining lists inside other lists
+
+AA1[:,1]
+
+AA1[2,:]
+
+
+AA1.sum()
+
+AA1.sum(axis=0)
+AA1.sum(axis=1)
+
+
+
+
+
