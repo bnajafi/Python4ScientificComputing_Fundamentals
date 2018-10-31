@@ -70,5 +70,39 @@ resistances_k=  [None,0.8,1.5,0.05,None]
 resistances_L= [None,0.5,0.3,0.6,None]
 resistances_RValues=[0,0,0,0,0]
 
+resistnaces_listOfLists = [resistances_types,resistances_h,resistances_k,resistances_L,resistances_RValues]
+
+resistances_DataFrame = pd.DataFrame(resistnaces_listOfLists,index=["type","h","k","L", "Rvalue"], columns =resistance_names )
+
+
+# How do we extract data from a dataFRame
+resistances_DataFrame.iloc[:,1]
+resistances_DataFrame.iloc[0]
+resistances_DataFrame.iloc[0,1]
+
+resistances_DataFrame.iloc[-1,:]
+
+# Second way of extraction using names !!
+
+# either you should'nt use anything (columsn) or you should use .loc
+
+resistances_DataFrame["R3"]
+
+resistances_DataFrame.loc["type"]
+
+resistances_DataFrame.loc["type","R1"]
+resistances_DataFrame.loc["k","R4"]
+
+resistances_DataFrame.loc["Rvalue"]=1
+
+resistances_DataFrame.loc["Rvalue"][resistances_DataFrame.loc["type"]=="conv"]=1.0/resistances_DataFrame.loc["h"][resistances_DataFrame.loc["type"]=="conv"]
+resistances_DataFrame.loc["Rvalue"][resistances_DataFrame.loc["type"]=="cond"]=resistances_DataFrame.loc["L"][resistances_DataFrame.loc["type"]=="cond"]/resistances_DataFrame.loc["k"][resistances_DataFrame.loc["type"]=="cond"]
+Rtot= resistances_DataFrame.loc["Rvalue"].sum()
+import os
+os.chdir(r"C:\Users\behzad\Dropbox\2 Teaching Activities\0 EETBS 2018\forked_repos\Python4ScientificComputing_Fundamentals\A 2018-2019")
+
+resistances_DataFrame.to_csv("myData.csv")
+resistances_DataFrame.to_html("myData.html")
+resistances_DataFrame.to_excel("myData.xls")
 
 
