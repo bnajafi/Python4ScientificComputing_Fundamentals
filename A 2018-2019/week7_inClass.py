@@ -60,4 +60,42 @@ DF_opaque.iloc[0,:] # first way
 DF_opaque.loc["U",:] # second way
 DF_opaque.loc["HF",:] = DF_opaque.loc["U",:]*DeltaT_heating
 DF_opaque.loc["Q",:] = DF_opaque.loc["HF",:]*DF_opaque.loc["Area",:]
-DF_opaque.loc["Q_kW",:] = 
+DF_opaque.loc["Q_kW",:] = DF_opaque.loc["Q",:].apply(toKwGenerator)
+
+import os
+os.chdir(r"C:\Users\behzad\Dropbox\2 Teaching Activities\0 EETBS 2018\forked_repos\Python4ScientificComputing_Fundamentals\A 2018-2019")
+
+DF_opaque.to_excel("Q_opaque_results.xlsx")
+DF_opaque.to_html("opaque_q_res.html")
+
+DF_input = pd.read_excel("inputData.xlsx",index_col=0,header=0) # these two arguemnts are the dafault , you can change them if you want
+
+
+
+def RValue_material(input_material):
+    ThermalResDict={"Outside Air":{"R":0.03},
+            "Wood Bevel Lapped Siding":{"R":0.14,"l":0.013},
+            "Wood Fiberboard":{"R":0.23,"l":0.013},
+            "Glass Fiber Insulation":{"R":0.7,"l":0.025},
+            "Wood Stud":{"R":0.63,"l":0.9},
+            "Gypsum":{"R":0.079,"l":0.013},
+            "Inside Air":{"R":0.12}
+            }
+    RValue_thisMaterial = ThermalResDict[input_material]["R"]
+    return RValue_thisMaterial
+
+def standardLength_material(input_material):
+    ThermalResDict={"Outside Air":{"R":0.03},
+            "Wood Bevel Lapped Siding":{"R":0.14,"l":0.013},
+            "Wood Fiberboard":{"R":0.23,"l":0.013},
+            "Glass Fiber Insulation":{"R":0.7,"l":0.025},
+            "Wood Stud":{"R":0.63,"l":0.9},
+            "Gypsum":{"R":0.079,"l":0.013},
+            "Inside Air":{"R":0.12}
+            }
+    standardLength_thisMaterial = ThermalResDict[input_material]["l"]
+    return standardLength_thisMaterial
+
+RValue_raw = 
+
+
