@@ -96,6 +96,9 @@ def standardLength_material(input_material):
     standardLength_thisMaterial = ThermalResDict[input_material]["l"]
     return standardLength_thisMaterial
 
-RValue_raw = 
-
-
+RValue_raw = DF_input.loc[:,"Material"].apply(RValue_material)
+standardLength_material = DF_input.loc[:,"Material"][DF_input.loc[:,"Type"]=="cond"].apply(standardLength_material)
+RValue_corrected = RValue_raw
+RValue_corrected[DF_input.loc[:,"Type"]=="cond"]=RValue_corrected[DF_input.loc[:,"Type"]=="cond"]*DF_input.loc[:,"Length"][DF_input.loc[:,"Type"]=="cond"]/standardLength_material
+DF_input.loc[:,"Rvalue"] = RValue_corrected
+DF_input.to_excel("inputData.xlsx")
