@@ -42,7 +42,7 @@ opaque_U_array = np.array(Opaque_U_list)
 
 opaque_area_array = np.array([105.8,200,2.2])
 
-T_inside_heating= 20
+T_inside_heating= 20rse y
 T_outside_heating = -4.8
 DeltaT_heating= T_inside_heating-T_outside_heating
 opaque_HF_array = DeltaT_heating*opaque_U_array
@@ -104,5 +104,6 @@ os.chdir(r"C:\Users\behzad\Dropbox\2 Teaching Activities\0 EETBS 2018\forked_rep
 resistances_DataFrame.to_csv("myData.csv")
 resistances_DataFrame.to_html("myData.html")
 resistances_DataFrame.to_excel("myData.xls")
+
 
 
