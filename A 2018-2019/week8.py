@@ -73,6 +73,6 @@ IAC_CL_finder_correct(thisWindowRow)
 
 window_DF["IAC_cl"]=window_DF.apply(IAC_CL_finder_correct,axis=1)
 
+window_DF["IAC"]=  1.0+(window_DF["IAC_cl"]-1.0)*window_DF["IntShading_closeness"]
 
-
-
+window_DF.to_csv(path_file_modifiedwindows,sep=";") # I am adding this sep=";" just because if not I will have to rearrange it in excel and I am lazy !
