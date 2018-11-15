@@ -31,6 +31,48 @@ name_file_modifiedWindows="window_modified.csv"
 path_file_modifiedwindows = os.path.join(Folder_whereThoseTablesAre,name_file_modifiedWindows) 
 window_DF.to_csv(path_file_modifiedwindows,sep=";") # I am adding this sep=";" just because if not I will have to rearrange it in excel and I am lazy !
 
+latitude  = 45
+location_deltaT_cooling = 7.9 
+location_deltaT_heating = 24.9 
+location_DR_cooling= 11.9
+
+C_Value = location_deltaT_cooling - 0.46*location_DR_cooling
+window_DF["C_value"]= C_Value
+
+
+name_file_IAC_Cl="IAC_cl.csv"
+path_file_IAC_Cl = os.path.join(Folder_whereThoseTablesAre,name_file_IAC_Cl) 
+IAC_cl_DF = pd.read_csv(path_file_IAC_Cl, sep=";", index_col = 1, header=0) 
+IAC_cl_DF.head(3)
+IAC_cl_DF.loc["1c","BlindsDark"]
+
+
+
+def IAC_CL_finder(windowID,intShadingID):  
+    name_file_IAC_Cl="IAC_cl.csv"
+    path_file_IAC_Cl = os.path.join(Folder_whereThoseTablesAre,name_file_IAC_Cl) 
+    IAC_cl_DF = pd.read_csv(path_file_IAC_Cl, sep=";", index_col = 1, header=0) 
+    IAC_cl_value = IAC_cl_DF.loc[windowID,intShadingID]
+    return IAC_cl_value
+
+IAC_CL_finder("1c","BlindsDark")  
+
+def IAC_CL_finder_correct(row):
+    windowID = row["Window_ID"]
+    intShadingID = row["IntShading_ID"]
+    name_file_IAC_Cl="IAC_cl.csv"
+    path_file_IAC_Cl = os.path.join(Folder_whereThoseTablesAre,name_file_IAC_Cl) 
+    IAC_cl_DF = pd.read_csv(path_file_IAC_Cl, sep=";", index_col = 1, header=0) 
+    IAC_cl_value = IAC_cl_DF.loc[windowID,intShadingID]
+    return IAC_cl_value
+
+
+thisWindowRow= window_DF.loc["east",:]
+
+IAC_CL_finder_correct(thisWindowRow)
+
+window_DF["IAC_cl"]=window_DF.apply(IAC_CL_finder_correct,axis=1)
+
 
 
 
