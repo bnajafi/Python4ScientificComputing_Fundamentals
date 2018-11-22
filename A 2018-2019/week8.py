@@ -76,3 +76,33 @@ window_DF["IAC_cl"]=window_DF.apply(IAC_CL_finder_correct,axis=1)
 window_DF["IAC"]=  1.0+(window_DF["IAC_cl"]-1.0)*window_DF["IntShading_closeness"]
 
 window_DF.to_csv(path_file_modifiedwindows,sep=";") # I am adding this sep=";" just because if not I will have to rearrange it in excel and I am lazy !
+
+# How can I make a range of numbers!
+
+x1 = range(1,11,2) # (start,stop,step) !it does not inlcude the stop one!
+
+# This is an awesome command if we want to create range of integers !!
+
+# IF I would like to create a range of floats: I should use numpy
+# I fyou have not imported it yet
+import numpy as np
+import pandas as pd
+A1 = np.arange(0.1,2,0.1)
+
+# The other vector we might need is the one where we just know the start, the stop and number of points
+A2 = np.linspace(0,10,50)
+
+# Now let's use this !
+
+X=np.arange(-10,10.1,0.1)
+Y=X**2-5
+
+def myFunc(x):
+    y=x**2-5
+    return y
+X_series = pd.Series(X)
+Y_series = X_series.apply(myFunc)
+
+
+
+
