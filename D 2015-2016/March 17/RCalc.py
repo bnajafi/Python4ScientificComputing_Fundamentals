@@ -1,6 +1,0 @@
-L=raw_input("Please Enter the length of the layer (in m): ")
-A=raw_input("Please Enter the area of the wall (in m2): ")
-k=raw_input("Please Enter the condictivty of the layer (in W/(m*K)): ")
-print("\n you just said "+ "L= " + L+ " m  "+ "A= " + A+ " m2  "+ "k= "+ k +" W/(m*K) \n")
-R=float(L)/(float(k)*float(A))
-print("Well the Thermal Resistnace is "+ str(R)+ " degC/W")
